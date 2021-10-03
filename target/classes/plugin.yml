@@ -1,0 +1,5 @@
+name: Chain
+description: Only a simple chain plugin.
+version: 1.0
+api-version: 1.16
+main: com.zpedroo.voltzchain.VoltzChain

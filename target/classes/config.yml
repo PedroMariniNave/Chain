@@ -1,0 +1,36 @@
+MySQL:
+  enabled: false
+  host: 'localhost'
+  database: 'db'
+  username: 'user'
+  password: 'pass'
+  port: 3306
+
+Settings:
+  command: chain
+  aliases: []
+  admin-permission: chain.admin
+
+Messages:
+  already-on-arena: "&6&lVoltz&f&lMC &8&l➜ &7Você já está na arena &fChain&7!"
+  is-not-on-arena: "&6&lVoltz&f&lMC &8&l➜ &7Você não está na arena &fChain&7!"
+  successful-join: "&6&lVoltz&f&lMC &8&l➜ &7Você entrou na arena &fChain&7! Para sair, digite &f/chain sair&7!"
+  location-set: "&6&lVoltz&f&lMC &8&l➜ &aLocalização definida com sucesso!"
+  join-not-set: "&6&lVoltz&f&lMC &8&l➜ &cA entrada não foi definida!"
+  exit-not-set: "&6&lVoltz&f&lMC &8&l➜ &cA saída não foi definida!"
+  blacklisted-command: "&6&lVoltz&f&lMC &8&l➜ &cVocê não pode executar esse comando enquanto estiver nessa arena!"
+
+Whitelisted-Commands:
+  - 'g'
+  - 'global'
+  - 'l'
+  - 'local'
+  - 'sc'
+  - 'tell'
+  - 'ally'
+  - '.'
+
+Join-Location: ''
+Exit-Location: ''
+Serialized-Inventory: ''
+Serialized-Armor: ''
