@@ -13,7 +13,8 @@ public class DBManager {
             String query = "UPDATE `" + DBConnection.TABLE + "` SET" +
                     "`uuid`='" + data.getUUID().toString() + "', " +
                     "`kills`='" + data.getKills() + "', " +
-                    "`deaths`='" + data.getDeaths() + "';";
+                    "`deaths`='" + data.getDeaths() + "' " +
+                    "WHERE `uuid`='" + data.getUUID().toString() + "';";
             executeUpdate(query);
             return;
         }
@@ -52,8 +53,8 @@ public class DBManager {
         return new PlayerData(player.getUniqueId(), 0, 0);
     }
 
-    public Set<PlayerData> getTop() {
-        Set<PlayerData> top = new HashSet<>(10);
+    public List<PlayerData> getTop() {
+        List<PlayerData> top = new ArrayList<>(10);
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -67,8 +68,8 @@ public class DBManager {
 
             while (result.next()) {
                 UUID uuid = UUID.fromString(result.getString(1));
-                Integer kills = result.getInt(2);
-                Integer deaths = result.getInt(3);
+                int kills = result.getInt(2);
+                int deaths = result.getInt(3);
 
                 top.add(new PlayerData(uuid, kills, deaths));
             }

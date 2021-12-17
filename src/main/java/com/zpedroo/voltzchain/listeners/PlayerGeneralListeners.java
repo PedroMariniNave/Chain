@@ -27,7 +27,7 @@ public class PlayerGeneralListeners implements Listener {
         Player killer = player.getKiller();
 
         ArenaManager.getInstance().updateItems(killer);
-        ArenaManager.getInstance().left(player);
+        ArenaManager.getInstance().leave(player);
 
         PlayerData playerData = DataManager.getInstance().load(player);
         PlayerData killerData = DataManager.getInstance().load(killer);
@@ -47,6 +47,7 @@ public class PlayerGeneralListeners implements Listener {
     @EventHandler(priority = EventPriority.LOWEST)
     public void onCommandPreprocess(PlayerCommandPreprocessEvent event) {
         if (!DataManager.getInstance().getCache().getFightingPlayers().contains(event.getPlayer())) return;
+        if (event.getPlayer().hasPermission(Settings.ADMIN_PERMISSION)) return;
 
         String executedCommand = event.getMessage().split(" ")[0].replace("/", "").toLowerCase();
         if (FileUtils.get().getStringList(FileUtils.Files.CONFIG, "Whitelisted-Commands").contains(executedCommand)) return;

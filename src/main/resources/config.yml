@@ -10,10 +10,11 @@ Settings:
   command: chain
   aliases: []
   admin-permission: chain.admin
+  save-interval: 600
 
 Messages:
-  already-on-arena: "&6&lVoltz&f&lMC &8&l➜ &7Você já está na arena &fChain&7!"
-  is-not-on-arena: "&6&lVoltz&f&lMC &8&l➜ &7Você não está na arena &fChain&7!"
+  already-on-arena: '&6&lVoltz&f&lMC &8&l➜ &cVocê já está na arena Chain!'
+  is-not-on-arena: '&6&lVoltz&f&lMC &8&l➜ &cVocê não está na arena Chain!'
   successful-join: "&6&lVoltz&f&lMC &8&l➜ &7Você entrou na arena &fChain&7! Para sair, digite &f/chain sair&7!"
   location-set: "&6&lVoltz&f&lMC &8&l➜ &aLocalização definida com sucesso!"
   join-not-set: "&6&lVoltz&f&lMC &8&l➜ &cA entrada não foi definida!"

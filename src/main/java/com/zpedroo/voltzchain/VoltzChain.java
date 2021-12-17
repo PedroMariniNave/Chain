@@ -5,6 +5,7 @@ import com.zpedroo.voltzchain.listeners.PlayerGeneralListeners;
 import com.zpedroo.voltzchain.managers.ArenaManager;
 import com.zpedroo.voltzchain.managers.DataManager;
 import com.zpedroo.voltzchain.mysql.DBConnection;
+import com.zpedroo.voltzchain.tasks.SaveTask;
 import com.zpedroo.voltzchain.utils.FileUtils;
 import com.zpedroo.voltzchain.utils.menu.Menus;
 import org.bukkit.Bukkit;
@@ -41,6 +42,7 @@ public class VoltzChain extends JavaPlugin {
         new DataManager();
         new ArenaManager();
         new Menus();
+        new SaveTask(this);
 
         registerCommand(COMMAND, ALIASES, new ChainCmd());
         registerListeners();

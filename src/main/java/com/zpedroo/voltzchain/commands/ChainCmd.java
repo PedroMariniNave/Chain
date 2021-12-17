@@ -25,6 +25,18 @@ public class ChainCmd implements CommandExecutor {
             FileUtils.FileManager file = null;
 
             switch (args[0].toUpperCase()) {
+                case "JOIN":
+                case "ENTRAR":
+                    if (player == null) break;
+
+                    ArenaManager.getInstance().join(player);
+                    return true;
+                case "LEAVE":
+                case "SAIR":
+                    if (player == null) break;
+
+                    ArenaManager.getInstance().leave(player);
+                    return true;
                 case "TOP":
                     if (player == null) break;
 

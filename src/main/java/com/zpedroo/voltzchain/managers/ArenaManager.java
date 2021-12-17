@@ -8,6 +8,7 @@ import com.zpedroo.voltzchain.utils.serialization.LocationSerialization;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.PotionEffect;
 
 import java.util.HashSet;
 
@@ -39,6 +40,10 @@ public class ArenaManager extends DataManager {
             return;
         }
 
+        for (PotionEffect potionEffect : player.getActivePotionEffects()) {
+            player.removePotionEffect(potionEffect.getType());
+        }
+
         getCache().getFightingPlayers().add(player);
         storeInventory(player);
         updateItems(player);
@@ -47,7 +52,7 @@ public class ArenaManager extends DataManager {
         player.teleport(arenaSettings.getJoinLocation());
     }
 
-    public void left(Player player) {
+    public void leave(Player player) {
         if (!getCache().getFightingPlayers().contains(player)) {
             player.sendMessage(Messages.IS_NOT_ON_ARENA);
             return;
@@ -60,13 +65,14 @@ public class ArenaManager extends DataManager {
     }
 
     public void updateItems(Player player) {
+        if (player == null) return;
+        
         if (arenaSettings.getInventoryItems() != null) player.getInventory().setContents(arenaSettings.getInventoryItems());
         if (arenaSettings.getArmor() != null) player.getInventory().setArmorContents(arenaSettings.getArmor());
     }
 
     public void storeInventory(Player player) {
         getCache().getStoredInventories().put(player, new StoredInventory(player.getInventory().getContents(), player.getInventory().getArmorContents()));
-        player.getInventory().clear();
     }
 
     public void restoreInventory(Player player) {

@@ -5,12 +5,12 @@ import java.util.UUID;
 public class PlayerData {
 
     private UUID uuid;
-    private Integer kills;
-    private Integer deaths;
-    private Double kdr;
-    private Boolean update;
+    private int kills;
+    private int deaths;
+    private double kdr;
+    private boolean update;
 
-    public PlayerData(UUID uuid, Integer kills, Integer deaths) {
+    public PlayerData(UUID uuid, int kills, int deaths) {
         this.uuid = uuid;
         this.kills = kills;
         this.deaths = deaths;
@@ -22,15 +22,15 @@ public class PlayerData {
         return uuid;
     }
 
-    public Integer getKills() {
+    public int getKills() {
         return kills;
     }
 
-    public Integer getDeaths() {
+    public int getDeaths() {
         return deaths;
     }
 
-    public Double getKDR() {
+    public double getKDR() {
         return kdr;
     }
 
@@ -42,7 +42,7 @@ public class PlayerData {
         this.kdr = deaths > 0 ? (double) kills / deaths : kills;
     }
 
-    public Boolean isQueueUpdate() {
+    public boolean isQueueUpdate() {
         return update;
     }
 

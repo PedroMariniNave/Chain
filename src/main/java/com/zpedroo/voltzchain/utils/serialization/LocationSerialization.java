@@ -2,6 +2,7 @@ package com.zpedroo.voltzchain.utils.serialization;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.World;
 
 public class LocationSerialization {
 
@@ -23,12 +24,13 @@ public class LocationSerialization {
         if (location == null || location.isEmpty()) return null;
 
         String[] locationSplit = location.split("#");
+        World world = Bukkit.getWorld(locationSplit[0]);
         double x = Double.parseDouble(locationSplit[1]);
         double y = Double.parseDouble(locationSplit[2]);
         double z = Double.parseDouble(locationSplit[3]);
         float yaw = Float.parseFloat(locationSplit[4]);
         float pitch = Float.parseFloat(locationSplit[5]);
 
-        return new Location(Bukkit.getWorld(locationSplit[0]), x, y, z, yaw, pitch);
+        return new Location(world, x, y, z, yaw, pitch);
     }
 }
