@@ -16,12 +16,21 @@ public class FileUtils {
     private static FileUtils instance;
     public static FileUtils get() { return instance; }
 
+<<<<<<< HEAD
     private final Plugin plugin;
     private final Map<Files, FileManager> files = new HashMap<>(Files.values().length);
+=======
+    private Plugin plugin;
+    private Map<Files, FileManager> files;
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
 
     public FileUtils(Plugin plugin) {
         instance = this;
         this.plugin = plugin;
+<<<<<<< HEAD
+=======
+        this.files = new HashMap<>(Files.values().length);
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
 
         for (Files files : Files.values()) {
             getFiles().put(files, new FileManager(files));
@@ -33,6 +42,7 @@ public class FileUtils {
     }
 
     public String getString(Files file, String path, String defaultValue) {
+<<<<<<< HEAD
         return getFile(file).getFileConfiguration().getString(path, defaultValue);
     }
 
@@ -82,6 +92,57 @@ public class FileUtils {
 
     public FileManager getFile(Files file) {
         return this.files.get(file);
+=======
+        return getFile(file).get().getString(path, defaultValue);
+    }
+
+    public List<String> getStringList(Files file, String path) {
+        return getFiles().get(file).get().getStringList(path);
+    }
+
+    public Boolean getBoolean(Files file, String path) {
+        return getFile(file).get().getBoolean(path);
+    }
+
+    public Integer getInt(Files file, String path) {
+        return getInt(file, path, 0);
+    }
+
+    public Integer getInt(Files file, String path, int defaultValue) {
+        return getFile(file).get().getInt(path, defaultValue);
+    }
+
+    public Long getLong(Files file, String path) {
+        return getLong(file, path, 0);
+    }
+
+    public Long getLong(Files file, String path, long defaultValue) {
+        return getFile(file).get().getLong(path, defaultValue);
+    }
+
+    public Double getDouble(Files file, String path) {
+        return getDouble(file, path, 0);
+    }
+
+    public Double getDouble(Files file, String path, double defaultValue) {
+        return getFile(file).get().getDouble(path, defaultValue);
+    }
+
+    public Float getFloat(Files file, String path) {
+        return getFloat(file, path, 0);
+    }
+
+    public Float getFloat(Files file, String path, float defaultValue) {
+        return (float) getFile(file).get().getDouble(path, defaultValue);
+    }
+
+    public Set<String> getSection(Files file, String path) {
+        return getFile(file).get().getConfigurationSection(path).getKeys(false);
+    }
+
+    public FileManager getFile(Files file) {
+        return getFiles().get(file);
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
     }
 
     public Map<Files, FileManager> getFiles() {
@@ -110,9 +171,15 @@ public class FileUtils {
         MAIN("main", "menus", "menus"),
         TOP("top", "menus", "menus");
 
+<<<<<<< HEAD
         private final String name;
         private final String resource;
         private final String folder;
+=======
+        private String name;
+        private String resource;
+        private String folder;
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
 
         Files(String name, String resource, String folder) {
             this.name = name;
@@ -135,7 +202,11 @@ public class FileUtils {
 
     public class FileManager {
 
+<<<<<<< HEAD
         private final File file;
+=======
+        private File file;
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
         private FileConfiguration fileConfig;
 
         public FileManager(Files file) {
@@ -160,7 +231,11 @@ public class FileUtils {
             }
         }
 
+<<<<<<< HEAD
         public FileConfiguration getFileConfiguration() {
+=======
+        public FileConfiguration get() {
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
             return fileConfig;
         }
 

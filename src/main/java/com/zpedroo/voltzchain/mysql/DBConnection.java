@@ -13,8 +13,13 @@ public class DBConnection {
 
     protected static final String TABLE = "chain";
 
+<<<<<<< HEAD
     private final HikariDataSource hikari;
     private final DBManager dbManager;
+=======
+    private HikariDataSource hikari;
+    private DBManager dbManager;
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
 
     public DBConnection(FileConfiguration file) {
         instance = this;

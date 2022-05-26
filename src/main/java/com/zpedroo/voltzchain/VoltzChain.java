@@ -44,8 +44,14 @@ public class VoltzChain extends JavaPlugin {
         new Menus();
         new SaveTask(this);
 
+<<<<<<< HEAD
         registerListeners();
         registerCommand(COMMAND, ALIASES, new ChainCmd());
+=======
+        registerCommand(COMMAND, ALIASES, new ChainCmd());
+        registerListeners();
+
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
     }
 
     public void onDisable() {
@@ -53,7 +59,11 @@ public class VoltzChain extends JavaPlugin {
 
         try {
             ArenaManager.getInstance().restoreAllInventories();
+<<<<<<< HEAD
             DataManager.getInstance().saveAllPlayersData();
+=======
+            DataManager.getInstance().saveAll();
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
             DBConnection.getInstance().closeConnection();
         } catch (Exception ex) {
             getLogger().log(Level.SEVERE, "An error occurred while trying to save data!");

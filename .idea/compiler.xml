@@ -6,7 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+<<<<<<< HEAD
         <module name="Chain-master" />
+=======
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
         <module name="Chain [Rankup Overpower]" />
       </profile>
     </annotationProcessing>

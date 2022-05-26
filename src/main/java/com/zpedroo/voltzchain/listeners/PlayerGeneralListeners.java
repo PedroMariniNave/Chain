@@ -1,6 +1,9 @@
 package com.zpedroo.voltzchain.listeners;
 
+<<<<<<< HEAD
 import com.zpedroo.voltzchain.VoltzChain;
+=======
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
 import com.zpedroo.voltzchain.data.PlayerData;
 import com.zpedroo.voltzchain.managers.ArenaManager;
 import com.zpedroo.voltzchain.managers.DataManager;
@@ -15,6 +18,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+<<<<<<< HEAD
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class PlayerGeneralListeners implements Listener {
@@ -22,12 +26,21 @@ public class PlayerGeneralListeners implements Listener {
     @EventHandler(priority = EventPriority.MONITOR)
     public void onDeath(PlayerDeathEvent event) {
         if (!ArenaManager.getInstance().isOnArena(event.getEntity())) return;
+=======
+
+public class PlayerGeneralListeners implements Listener {
+
+    @EventHandler(priority = EventPriority.LOWEST)
+    public void onDeath(PlayerDeathEvent event) {
+        if (!DataManager.getInstance().getCache().getFightingPlayers().contains(event.getEntity())) return;
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
 
         event.getDrops().clear();
 
         Player player = event.getEntity();
         Player killer = player.getKiller();
 
+<<<<<<< HEAD
         player.spigot().respawn();
 
         if (ArenaManager.getInstance().isOnArena(killer)) {
@@ -46,6 +59,16 @@ public class PlayerGeneralListeners implements Listener {
                 ArenaManager.getInstance().leave(player);
             }
         }.runTaskLater(VoltzChain.get(), 0L);
+=======
+        ArenaManager.getInstance().updateItems(killer);
+        ArenaManager.getInstance().leave(player);
+
+        PlayerData playerData = DataManager.getInstance().load(player);
+        PlayerData killerData = DataManager.getInstance().load(killer);
+
+        playerData.addDeaths(1);
+        killerData.addKills(1);
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
     }
 
     @EventHandler(priority = EventPriority.MONITOR)
@@ -53,7 +76,11 @@ public class PlayerGeneralListeners implements Listener {
         Player player = event.getPlayer();
 
         ArenaManager.getInstance().restoreInventory(player);
+<<<<<<< HEAD
         DataManager.getInstance().savePlayerData(player);
+=======
+        DataManager.getInstance().save(player);
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
     }
 
     @EventHandler(priority = EventPriority.LOWEST)

@@ -26,7 +26,11 @@ import java.util.UUID;
 
 public class ItemBuilder {
 
+<<<<<<< HEAD
     private final ItemStack item;
+=======
+    private ItemStack item;
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
 
     private Method metaSetProfileMethod;
     private Field metaProfileField;
@@ -39,17 +43,24 @@ public class ItemBuilder {
         }
     }
 
+<<<<<<< HEAD
     public ItemBuilder(ItemStack item) {
         this.item = item;
     }
 
+=======
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
     public static ItemBuilder build(FileConfiguration file, String where) {
         return build(file, where, null, null);
     }
 
     public static ItemBuilder build(FileConfiguration file, String where, String[] placeholders, String[] replaces) {
         String type = StringUtils.replaceEach(file.getString(where + ".type"), placeholders, replaces);
+<<<<<<< HEAD
         short data = (short) file.getInt(where + ".data", 0);
+=======
+        short data = Short.parseShort(file.getString(where + ".data", "0"));
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
         int amount = file.getInt(where + ".amount", 1);
 
         Material material = Material.getMaterial(type);
@@ -114,6 +125,7 @@ public class ItemBuilder {
         return builder;
     }
 
+<<<<<<< HEAD
     public ItemBuilder setName(String name) {
         ItemMeta meta = item.getItemMeta();
         if (meta == null) return this;
@@ -126,15 +138,33 @@ public class ItemBuilder {
     public ItemBuilder setLore(List<String> lore, String[] placeholders, String[] replacers) {
         ItemMeta meta = item.getItemMeta();
         if (meta == null) return this;
+=======
+    private void setName(String name) {
+        ItemMeta meta = item.getItemMeta();
+        if (meta == null) return;
+
+        meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
+        item.setItemMeta(meta);
+    }
+
+    private void setLore(List<String> lore, String[] placeholders, String[] replaces) {
+        ItemMeta meta = item.getItemMeta();
+        if (meta == null) return;
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
 
         List<String> newLore = new ArrayList<>(lore.size());
 
         for (String str : lore) {
+<<<<<<< HEAD
             newLore.add(ChatColor.translateAlternateColorCodes('&', StringUtils.replaceEach(str, placeholders, replacers)));
+=======
+            newLore.add(ChatColor.translateAlternateColorCodes('&', StringUtils.replaceEach(str, placeholders, replaces)));
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
         }
 
         meta.setLore(newLore);
         item.setItemMeta(meta);
+<<<<<<< HEAD
         return this;
     }
 
@@ -159,6 +189,30 @@ public class ItemBuilder {
 
         PotionEffectType potionEffectType = PotionEffectType.getByName(type);
         if (potionEffectType == null) return this;
+=======
+    }
+
+    private void addEnchantment(Enchantment enchantment) {
+        addEnchantment(enchantment, 1);
+    }
+
+    private void addEnchantment(Enchantment enchantment, int level) {
+        if (enchantment == null) return;
+
+        ItemMeta meta = item.getItemMeta();
+        if (meta == null) return;
+
+        meta.addEnchant(enchantment, level, true);
+        item.setItemMeta(meta);
+    }
+
+    private void addPotion(String type, int duration, int amplifier) {
+        PotionMeta meta = (PotionMeta) item.getItemMeta();
+        if (meta == null) return;
+
+        PotionEffectType potionEffectType = PotionEffectType.getByName(type);
+        if (potionEffectType == null) return;
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
 
         PotionEffect potionEffect = new PotionEffect(potionEffectType, duration, amplifier);
 
@@ -168,6 +222,7 @@ public class ItemBuilder {
         if (potionType != null) {
             meta.addCustomEffect(potionEffect, true);
         }
+<<<<<<< HEAD
 
         item.setItemMeta(meta);
         return this;
@@ -176,20 +231,37 @@ public class ItemBuilder {
     public ItemBuilder setGlow() {
         ItemMeta meta = item.getItemMeta();
         if (meta == null) return this;
+=======
+        item.setItemMeta(meta);
+    }
+
+    private void setGlow() {
+        ItemMeta meta = item.getItemMeta();
+        if (meta == null) return;
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
 
         meta.addEnchant(Enchantment.LUCK, 1, false);
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         item.setItemMeta(meta);
+<<<<<<< HEAD
         return this;
     }
 
     public ItemBuilder hideAttributes() {
         ItemMeta meta = item.getItemMeta();
         if (meta == null) return this;
+=======
+    }
+
+    private void hideAttributes() {
+        ItemMeta meta = item.getItemMeta();
+        if (meta == null) return;
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
 
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         item.setItemMeta(meta);
+<<<<<<< HEAD
         return this;
     }
 
@@ -206,14 +278,36 @@ public class ItemBuilder {
 
     public ItemBuilder setCustomTexture(String base64) {
         if (base64 == null || base64.isEmpty()) return this;
+=======
+    }
+
+    private void setSkullOwner(String owner) {
+        if (owner == null || owner.isEmpty()) return;
+
+        SkullMeta meta = (SkullMeta) item.getItemMeta();
+        if (meta == null) return;
+
+        meta.setOwner(owner);
+        item.setItemMeta(meta);
+    }
+
+    private void setCustomTexture(String base64) {
+        if (base64 == null || base64.isEmpty()) return;
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
 
         SkullMeta meta = (SkullMeta) item.getItemMeta();
         setCustomTexture(meta, base64);
         item.setItemMeta(meta);
+<<<<<<< HEAD
         return this;
     }
 
     public ItemBuilder setCustomTexture(SkullMeta meta, String base64) {
+=======
+    }
+
+    private void setCustomTexture(SkullMeta meta, String base64) {
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
         try {
             if (metaSetProfileMethod == null) {
                 metaSetProfileMethod = meta.getClass().getDeclaredMethod("setProfile", GameProfile.class);
@@ -232,8 +326,11 @@ public class ItemBuilder {
                 ex2.printStackTrace();
             }
         }
+<<<<<<< HEAD
 
         return this;
+=======
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
     }
 
     private GameProfile createProfile(String base64) {

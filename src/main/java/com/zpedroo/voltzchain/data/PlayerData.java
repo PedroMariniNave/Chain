@@ -4,7 +4,11 @@ import java.util.UUID;
 
 public class PlayerData {
 
+<<<<<<< HEAD
     private final UUID uuid;
+=======
+    private UUID uuid;
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
     private int kills;
     private int deaths;
     private double kdr;
@@ -58,7 +62,11 @@ public class PlayerData {
         this.calculateKDR();
     }
 
+<<<<<<< HEAD
     public void setUpdate(boolean update) {
+=======
+    public void setUpdate(Boolean update) {
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
         this.update = update;
     }
 }

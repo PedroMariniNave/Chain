@@ -11,15 +11,27 @@ import org.bukkit.event.inventory.InventoryType;
 import java.util.HashMap;
 import java.util.Map;
 
+<<<<<<< HEAD
 public abstract class InventoryUtils {
+=======
+public class InventoryUtils {
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
 
     private static InventoryUtils instance;
     public static InventoryUtils get() { return instance; }
 
+<<<<<<< HEAD
     private final Map<Player, InventoryBuilder> viewers = new HashMap<>(16);
 
     public InventoryUtils() {
         instance = this;
+=======
+    private Map<Player, InventoryBuilder> viewers;
+
+    public InventoryUtils() {
+        instance = this;
+        this.viewers = new HashMap<>(128);
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
         VoltzChain.get().getServer().getPluginManager().registerEvents(new ActionListeners(), VoltzChain.get());
     }
 
@@ -70,8 +82,13 @@ public abstract class InventoryUtils {
 
     public static class Action {
 
+<<<<<<< HEAD
         private final Runnable action;
         private final ActionType actionType;
+=======
+        private Runnable action;
+        private ActionType actionType;
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
 
         public Action(Runnable action, ActionType actionType) {
             this.action = action;

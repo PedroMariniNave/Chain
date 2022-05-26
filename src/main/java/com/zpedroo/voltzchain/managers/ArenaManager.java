@@ -5,13 +5,19 @@ import com.zpedroo.voltzchain.utils.FileUtils;
 import com.zpedroo.voltzchain.utils.config.Messages;
 import com.zpedroo.voltzchain.utils.serialization.ItemSerialization;
 import com.zpedroo.voltzchain.utils.serialization.LocationSerialization;
+<<<<<<< HEAD
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
+=======
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
+<<<<<<< HEAD
 import org.jetbrains.annotations.NotNull;
+=======
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
 
 import java.util.HashSet;
 
@@ -20,10 +26,18 @@ public class ArenaManager extends DataManager {
     private static ArenaManager instance;
     public static ArenaManager getInstance() { return instance; }
 
+<<<<<<< HEAD
     private final ArenaSettings arenaSettings = loadSettings();
 
     public ArenaManager() {
         instance = this;
+=======
+    private ArenaSettings arenaSettings;
+
+    public ArenaManager() {
+        instance = this;
+        this.arenaSettings = loadSettings();
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
     }
 
     public void join(Player player) {
@@ -89,10 +103,13 @@ public class ArenaManager extends DataManager {
         new HashSet<>(getCache().getStoredInventories().keySet()).forEach(this::restoreInventory);
     }
 
+<<<<<<< HEAD
     public boolean isOnArena(@NotNull Player player) {
         return DataManager.getInstance().getCache().getFightingPlayers().contains(player);
     }
 
+=======
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
     private ArenaSettings loadSettings() {
         String serializedInventory = FileUtils.get().getString(FileUtils.Files.CONFIG, "Serialized-Inventory");
         String serializedArmor = FileUtils.get().getString(FileUtils.Files.CONFIG, "Serialized-Armor");
@@ -119,8 +136,13 @@ public class ArenaManager extends DataManager {
 
     public static class StoredInventory {
 
+<<<<<<< HEAD
         private final ItemStack[] contents;
         private final ItemStack[] armor;
+=======
+        private ItemStack[] contents;
+        private ItemStack[] armor;
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
 
         public StoredInventory(ItemStack[] contents, ItemStack[] armor) {
             this.contents = contents;

@@ -29,7 +29,11 @@ public class Menus extends InventoryUtils {
 
         InventoryBuilder inventory = new InventoryBuilder(title, size);
 
+<<<<<<< HEAD
         PlayerData data = DataManager.getInstance().getPlayerData(player);
+=======
+        PlayerData data = DataManager.getInstance().load(player);
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
 
         String[] placeholders = new String[]{
                 "{player}",
@@ -47,15 +51,26 @@ public class Menus extends InventoryUtils {
         for (String str : FileUtils.get().getSection(file, "Inventory.items")) {
             ItemStack item = null;
             String action = null;
+<<<<<<< HEAD
             if (FileUtils.get().getFile(file).getFileConfiguration().contains("Inventory.items." + str + ".join") && FileUtils.get().getFile(file).getFileConfiguration().contains("Inventory.items." + str + ".leave")) {
+=======
+            if (FileUtils.get().getFile(file).get().contains("Inventory.items." + str + ".join") && FileUtils.get().getFile(file).get().contains("Inventory.items." + str + ".leave")) {
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
                 boolean fighting = DataManager.getInstance().getCache().getFightingPlayers().contains(player);
 
                 String typeToGet = fighting ? "leave" : "join";
 
+<<<<<<< HEAD
                 item = ItemBuilder.build(FileUtils.get().getFile(file).getFileConfiguration(), "Inventory.items." + str + "." + typeToGet, placeholders, replaces).build();
                 action = FileUtils.get().getString(file, "Inventory.items." + str + "." + typeToGet + ".action");
             } else {
                 item = ItemBuilder.build(FileUtils.get().getFile(file).getFileConfiguration(), "Inventory.items." + str, placeholders, replaces).build();
+=======
+                item = ItemBuilder.build(FileUtils.get().getFile(file).get(), "Inventory.items." + str + "." + typeToGet, placeholders, replaces).build();
+                action = FileUtils.get().getString(file, "Inventory.items." + str + "." + typeToGet + ".action");
+            } else {
+                item = ItemBuilder.build(FileUtils.get().getFile(file).get(), "Inventory.items." + str, placeholders, replaces).build();
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
                 action = FileUtils.get().getString(file, "Inventory.items." + str + ".action");
             }
             int slot = FileUtils.get().getInt(file, "Inventory.items." + str + ".slot");
@@ -91,7 +106,11 @@ public class Menus extends InventoryUtils {
         String[] slots = FileUtils.get().getString(file, "Inventory.slots").replace(" ", "").split(",");
 
         for (PlayerData data : DataManager.getInstance().getCache().getTopKills()) {
+<<<<<<< HEAD
             ItemStack item = ItemBuilder.build(FileUtils.get().getFile(FileUtils.Files.TOP).getFileConfiguration(), "Item", new String[]{
+=======
+            ItemStack item = ItemBuilder.build(FileUtils.get().getFile(FileUtils.Files.TOP).get(), "Item", new String[]{
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
                     "{player}",
                     "{pos}",
                     "{kills}",

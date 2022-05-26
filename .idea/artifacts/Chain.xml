@@ -1,10 +1,18 @@
 <component name="ArtifactManager">
   <artifact type="jar" build-on-make="true" name="Chain">
+<<<<<<< HEAD
     <output-path>$USER_HOME$/Desktop/Compilar</output-path>
     <root id="archive" name="Chain.jar">
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/2.0.0-alpha1/slf4j-api-2.0.0-alpha1.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/zaxxer/HikariCP/4.0.3/HikariCP-4.0.3.jar" path-in-jar="/" />
       <element id="module-output" name="Chain-master" />
+=======
+    <output-path>$USER_HOME$/Desktop/Compilar Plugins</output-path>
+    <root id="archive" name="Chain.jar">
+      <element id="module-output" name="Chain [Rankup Overpower]" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/2.0.0-alpha1/slf4j-api-2.0.0-alpha1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/zaxxer/HikariCP/4.0.3/HikariCP-4.0.3.jar" path-in-jar="/" />
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
     </root>
   </artifact>
 </component>

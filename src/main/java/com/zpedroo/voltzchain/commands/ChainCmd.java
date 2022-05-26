@@ -52,7 +52,11 @@ public class ChainCmd implements CommandExecutor {
                     ArenaManager.getInstance().getSettings().setJoinLocation(location);
 
                     file = FileUtils.get().getFile(FileUtils.Files.CONFIG);
+<<<<<<< HEAD
                     file.getFileConfiguration().set("Join-Location", serializedLocation);
+=======
+                    file.get().set("Join-Location", serializedLocation);
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
                     file.save();
 
                     player.sendMessage(Messages.LOCATION_SET);
@@ -67,7 +71,11 @@ public class ChainCmd implements CommandExecutor {
                     ArenaManager.getInstance().getSettings().setExitLocation(location);
 
                     file = FileUtils.get().getFile(FileUtils.Files.CONFIG);
+<<<<<<< HEAD
                     file.getFileConfiguration().set("Exit-Location", serializedLocation);
+=======
+                    file.get().set("Exit-Location", serializedLocation);
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
                     file.save();
 
                     player.sendMessage(Messages.LOCATION_SET);
@@ -83,8 +91,13 @@ public class ChainCmd implements CommandExecutor {
                     ArenaManager.getInstance().getSettings().setArmor(player.getInventory().getArmorContents());
 
                     file = FileUtils.get().getFile(FileUtils.Files.CONFIG);
+<<<<<<< HEAD
                     file.getFileConfiguration().set("Serialized-Inventory", serializedInventory);
                     file.getFileConfiguration().set("Serialized-Armor", serializedArmor);
+=======
+                    file.get().set("Serialized-Inventory", serializedInventory);
+                    file.get().set("Serialized-Armor", serializedArmor);
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
                     file.save();
 
                     player.getInventory().clear();
@@ -92,7 +105,13 @@ public class ChainCmd implements CommandExecutor {
             }
         }
 
+<<<<<<< HEAD
         if (player != null) Menus.getInstance().openMainMenu(player);
+=======
+        if (player == null) return true;
+
+        Menus.getInstance().openMainMenu(player);
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
         return false;
     }
 }

@@ -11,10 +11,13 @@
     <name>Chain</name>
     <description>Only a simple chain plugin.</description>
 
+<<<<<<< HEAD
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+=======
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
     <repositories>
         <repository>
             <id>spigot-repo</id>
@@ -49,12 +52,17 @@
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
                 <includes>
+<<<<<<< HEAD
                     <include>**/*.yml</include>
+=======
+                    <include>plugin.yml</include>
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
                 </includes>
             </resource>
 
             <resource>
                 <directory>src/main/resources</directory>
+<<<<<<< HEAD
                 <filtering>true</filtering>
                 <excludes>
                     <exclude>**/*.jar</exclude>
@@ -62,6 +70,14 @@
             </resource>
         </resources>
 
+=======
+                <filtering>false</filtering>
+                <excludes>
+                    <exclude>plugin.yml</exclude>
+                </excludes>
+            </resource>
+        </resources>
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

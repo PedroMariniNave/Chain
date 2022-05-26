@@ -9,10 +9,28 @@ import java.util.*;
 public class DBManager {
 
     public void saveData(PlayerData data) {
+<<<<<<< HEAD
         executeUpdate("REPLACE INTO `" + DBConnection.TABLE + "` (`uuid`, `kills`, `deaths`) VALUES " +
                 "('" + data.getUUID().toString() + "', " +
                 "'" + data.getKills() + "', " +
                 "'" + data.getDeaths() + "');");
+=======
+        if (contains(data.getUUID().toString(), "uuid")) {
+            String query = "UPDATE `" + DBConnection.TABLE + "` SET" +
+                    "`uuid`='" + data.getUUID().toString() + "', " +
+                    "`kills`='" + data.getKills() + "', " +
+                    "`deaths`='" + data.getDeaths() + "' " +
+                    "WHERE `uuid`='" + data.getUUID().toString() + "';";
+            executeUpdate(query);
+            return;
+        }
+
+        String query = "INSERT INTO `" + DBConnection.TABLE + "` (`uuid`, `kills`, `deaths`) VALUES " +
+                "('" + data.getUUID().toString() + "', " +
+                "'" + data.getKills() + "', " +
+                "'" + data.getDeaths() + "');";
+        executeUpdate(query);
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
     }
 
     public PlayerData loadData(Player player) {
@@ -28,8 +46,13 @@ public class DBManager {
 
             if (result.next()) {
                 UUID uuid = UUID.fromString(result.getString(1));
+<<<<<<< HEAD
                 int kills = result.getInt(2);
                 int deaths = result.getInt(3);
+=======
+                Integer kills = result.getInt(2);
+                Integer deaths = result.getInt(3);
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
 
                 return new PlayerData(uuid, kills, deaths);
             }
@@ -71,6 +94,28 @@ public class DBManager {
         return top;
     }
 
+<<<<<<< HEAD
+=======
+    private Boolean contains(String value, String column) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet result = null;
+        String query = "SELECT `" + column + "` FROM `" + DBConnection.TABLE + "` WHERE `" + column + "`='" + value + "';";
+        try {
+            connection = getConnection();
+            preparedStatement = connection.prepareStatement(query);
+            result = preparedStatement.executeQuery();
+            return result.next();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            closeConnection(connection, result, preparedStatement, null);
+        }
+
+        return false;
+    }
+
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
     private void executeUpdate(String query) {
         Connection connection = null;
         Statement statement = null;

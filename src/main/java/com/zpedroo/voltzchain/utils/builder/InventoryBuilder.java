@@ -14,6 +14,7 @@ import static com.zpedroo.voltzchain.utils.builder.InventoryUtils.*;
 
 public class InventoryBuilder {
 
+<<<<<<< HEAD
     private final Inventory inventory;
     private final String title;
     private final Integer size;
@@ -25,6 +26,19 @@ public class InventoryBuilder {
     private InventoryBuilder nextPageInventory;
     private Table<Integer, ItemStack, List<Action>> defaultItems;
     private final Table<Integer, ActionType, Action> actions;
+=======
+    private Inventory inventory;
+    private String title;
+    private Integer size;
+    private ItemStack previousPageItem;
+    private Integer previousPageSlot;
+    private InventoryBuilder previousPageInventory;
+    private ItemStack nextPageItem;
+    private Integer nextPageSlot;
+    private InventoryBuilder nextPageInventory;
+    private Table<Integer, ItemStack, List<Action>> defaultItems;
+    private Table<Integer, ActionType, Action> actions;
+>>>>>>> 89d28eac5053a399057f3d2b91243b8fed94e3e1
 
     public InventoryBuilder(String title, Integer size) {
         this(title, size, null, null, null, null, null, null);
